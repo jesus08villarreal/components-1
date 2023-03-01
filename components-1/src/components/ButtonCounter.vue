@@ -7,7 +7,12 @@ const Counter =() => {number.value++}
 <template>
     <div class="card card-body">
     <h1 class="card-title">Click para aumentar el contador</h1>
-    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis placeat inventore architecto, enim dicta rerum fuga. A qui ullam ipsam repellendus quibusdam error soluta delectus, saepe illum deserunt, incidunt accusantium.</p>
-    <button @click="Counter" class="btn btn-primary">{{ number }}</button>
+    <p class="card-text">illum deserunt, incidunt accusantium.</p>
+    <div class="btn-group">
+    <button @click="Counter" class="btn btn-primary">ShowPosts!{{ number }}</button>
+    <button @click="Counter" class="btn btn-primary">ShowPosts!{{ number }}</button>
+    </div>
         </div>
 </template>
+<style>
+</style>
