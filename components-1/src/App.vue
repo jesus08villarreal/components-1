@@ -5,9 +5,9 @@ import BlogPost from './components/BlogPost.vue'
 
 <template>
   <ButtonCounter/>
-  <BlogPost title="Yisus"/>
-  <BlogPost title="Maylon"/>
-  <BlogPost title="Alex"/>
+  <BlogPost title="Yisus" btntext="Flow"/>
+  <BlogPost title="Maylon" btntext="Mas"/>
+  <BlogPost title="Alex" btntext="Cash"/>
 
 
 </template>
