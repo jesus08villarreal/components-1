@@ -7,7 +7,7 @@ body: {
     default: "sin descripcion",
 },
 id: Number,
-btntext: String
+btntext: String,
  })
 </script>
 <template>
@@ -16,7 +16,7 @@ btntext: String
         <h1 class="card-title">{{ title }}</h1>
             <h5 class="card-text">{{ body }}</h5>
                 <p class="">{{ id }}</p>
-                <button class="btn btn-info">{{btntext}}</button>
+                <button @click="$emit('cambiarFavorito',title)" class="btn btn-info">{{btntext}}</button>
     </div>
     </div>
 </template>

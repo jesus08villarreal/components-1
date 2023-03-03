@@ -4,16 +4,20 @@ import BlogPost from './components/BlogPost.vue'
 import {ref} from 'vue'
 
 const posts = ref([
-  {title: "Post 1", id: 1,body:"descripcion 1", btntext:"Alex"},
-  {title: "Post: 2", id: 2,body:"descripcion: 2", btntext:"Yisus"},
-  {title: "Post 3", id: 3,body:"descripcion 3", btntext:"Maylon"},
-  {title: "Post 4", id: 4, btntext:"Puchis"},
+  {title: "Alex", id: 1,body:"descripcion 1", btntext:"Favorito"},
+  {title: "Yisus", id: 2,body:"descripcion: 2", btntext:"Favorito"},
+  {title: "Maylon", id: 3,body:"descripcion 3", btntext:"Favorito"},
+  {title: "Ricarda", id: 4,body:"descripcion 4", btntext:"Favorito"},
+  {title: "Charby", id: 5,body:"descripcion 5", btntext:"Favorito"},
+  {title: "Puchis", id: 4, btntext:"Puchis"},
 ])
-
+const favoritoEscogido = ref('')
+const cambiarFavorito =(title)=>{ favoritoEscogido.value = title}
 </script>
 
 <template>
-  <ButtonCounter/>
+  <h1>APP</h1>
+  <h2>Mi post favorito: {{ favoritoEscogido }}</h2>
   <BlogPost
   v-for="post in posts"
   :key="post.id"
@@ -21,6 +25,7 @@ const posts = ref([
     :btntext="post.btntext"
       :body="post.body"
         :id="post.id"
+        @cambiarFavorito="cambiarFavorito"
     >
     </BlogPost>
 
