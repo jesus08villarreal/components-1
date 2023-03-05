@@ -20,7 +20,7 @@ btntext: String,
    
     <div class="card ">
     <div class="card-body">
-        <h1 class="card-title">{{ title }}</h1>
+        <h1 class="card-title">{{id}} - {{ title }}</h1>
             <h5 class="card-text">{{ body }}</h5>
                 <button @click="cambiarFavorito(title)" class="btn btn-info">{{btntext}}</button>
     </div>
