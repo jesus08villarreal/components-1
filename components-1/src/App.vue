@@ -1,6 +1,7 @@
 <script setup>
 import PaginatePost from './components/PaginatePost.vue'
 import BlogPost from './components/BlogPost.vue'
+import Spinner from './components/LoadingSpinner.vue'
 import {ref} from 'vue'
 
 const Slice1 = ref(0)
@@ -15,7 +16,7 @@ const cambiarFavorito =(title)=>{ favoritoEscogido.value = title}
 
 const PaginaSiguiente = () => {
   anteriorHabilitado.value = false
-  if(Slice2.value >= 95){
+  if(Slice2.value >= posts.value.length-pgXpg){
 siguienteHabilitado.value = true
 } 
   Slice1.value=Slice1.value+pgXpg
@@ -48,6 +49,9 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     :anteriorHabilitado=anteriorHabilitado
     :siguienteHabilitado=siguienteHabilitado
   ></PaginatePost>
+  
+    <Spinner/>
+  
   </nav>
 
   <h2 class="padre1">Mi post favorito: {{ favoritoEscogido }}</h2>
@@ -72,6 +76,7 @@ fetch("https://jsonplaceholder.typicode.com/posts")
 </template>
 
 <style>
+
 .padre1 {
     display: grid;
     grid-template-columns: 1fr;

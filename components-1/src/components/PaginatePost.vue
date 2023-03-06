@@ -9,7 +9,7 @@ siguienteHabilitado: Boolean})
   :disabled=anteriorHabilitado
    @click="$emit('PaginaAnterior')"
     type="button" 
-    class="btn btn-primary"
+    class="btn btn-outline-primary"
     >Previus</button>
 
 
@@ -17,7 +17,7 @@ siguienteHabilitado: Boolean})
   :disabled=siguienteHabilitado
   @click="$emit('PaginaSiguiente')"
    type="button"
-    class="btn btn-primary"
+    class="btn btn-outline-primary"
     >Next</button>
 
 </div>
