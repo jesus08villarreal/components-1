@@ -8,25 +8,29 @@ const Slice2 = ref(5)
 const pgXpg = 5
 const posts = ref([])
 const favoritoEscogido = ref('')
-const anteriorHabilitado = ref(false)
+const anteriorHabilitado = ref(true)
 const siguienteHabilitado = ref(false)
 
 const cambiarFavorito =(title)=>{ favoritoEscogido.value = title}
 
 const PaginaSiguiente = () => {
+  anteriorHabilitado.value = false
+  if(Slice2.value >= 95){
+siguienteHabilitado.value = true
+} 
   Slice1.value=Slice1.value+pgXpg
   Slice2.value=Slice2.value+pgXpg
 }
 const PaginaAnterior = () => {
+  siguienteHabilitado.value = false
   Slice1.value=Slice1.value-pgXpg
   Slice2.value=Slice2.value-pgXpg
-}
-if(Slice2.value > 20){
-siguienteHabilitado.value = true
-}
-if(Slice1.value < 0){
+  if(Slice1.value <= 1){
 anteriorHabilitado.value = true
 }
+}
+
+
 
 
 
@@ -40,9 +44,9 @@ fetch("https://jsonplaceholder.typicode.com/posts")
   <a class="text-center backgroundTitle navbar-brand" href="">The Post!</a>
   <PaginatePost 
     @PaginaSiguiente="PaginaSiguiente()"
-    @PaginaAnteror="PaginaAnterior()"
-    :anteriorHabilitado="anteriorHabilitado"
-    :siguienteHabilitado="siguienteHabilitado"
+    @PaginaAnterior="PaginaAnterior()"
+    :anteriorHabilitado=anteriorHabilitado
+    :siguienteHabilitado=siguienteHabilitado
   ></PaginatePost>
   </nav>
 
@@ -79,9 +83,7 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     margin-bottom: 1rem;
     height: auto;
 }
-.navbar {
 
-}
 .backgroundTitle {
   background-color: grey;
   color: white;
