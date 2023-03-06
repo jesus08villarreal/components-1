@@ -7,13 +7,6 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-src
-index.html
-package-lock.json
-package.json
-vite.config.js
-public
-.vscode
 node_modules
 .DS_Store
 dist
