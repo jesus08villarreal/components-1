@@ -11,6 +11,7 @@ const posts = ref([])
 const favoritoEscogido = ref('')
 const anteriorHabilitado = ref(true)
 const siguienteHabilitado = ref(false)
+const Loading = ref(true)
 
 const cambiarFavorito =(title)=>{ favoritoEscogido.value = title}
 
@@ -18,29 +19,40 @@ const PaginaSiguiente = () => {
   anteriorHabilitado.value = false
   if(Slice2.value >= posts.value.length-pgXpg){
 siguienteHabilitado.value = true
-} 
+  }
   Slice1.value=Slice1.value+pgXpg
   Slice2.value=Slice2.value+pgXpg
 }
 const PaginaAnterior = () => {
   siguienteHabilitado.value = false
+
   Slice1.value=Slice1.value-pgXpg
   Slice2.value=Slice2.value-pgXpg
   if(Slice1.value <= 1){
 anteriorHabilitado.value = true
+  }
 }
-}
-
-
-
 
 
 fetch("https://jsonplaceholder.typicode.com/posts")
 .then(response => response.json())
       .then(data => posts.value = data)
+      .finally(()=>{
+        setTimeout(() =>{
+            Loading.value = false
+            
+        }, 2000)
+      })
 </script>
 
 <template>
+  
+    <Spinner
+  v-if="Loading"
+  class=""
+  >
+  </Spinner>
+  <div v-else>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <a class="text-center backgroundTitle navbar-brand" href="">The Post!</a>
   <PaginatePost 
@@ -49,9 +61,6 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     :anteriorHabilitado=anteriorHabilitado
     :siguienteHabilitado=siguienteHabilitado
   ></PaginatePost>
-  
-    <Spinner/>
-  
   </nav>
 
   <h2 class="padre1">Mi post favorito: {{ favoritoEscogido }}</h2>
@@ -71,7 +80,7 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     </BlogPost>
   </div>
 
-
+</div>
 
 </template>
 

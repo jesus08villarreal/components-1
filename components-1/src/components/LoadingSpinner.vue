@@ -1,11 +1,11 @@
 <script>
 </script>
 <template>
-<div class="d-flex justify-content-center align-items-center ms-5">
+<div class="d-flex justify-content-center align-items-center">
   <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
+    <span alt="Loading" class="visually-hidden">Loading...</span>
   </div>
-  <span class="ms-2 placeholder-glow">Loading...</span>
+  <span class="ms-2">Cargando...</span>
 </div>
 </template>
 <style>
